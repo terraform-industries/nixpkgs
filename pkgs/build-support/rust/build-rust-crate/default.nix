@@ -353,6 +353,10 @@ crate_: lib.makeOverridable
           extraRustcOpts buildTests codegenUnits;
       };
       dontStrip = !release;
+
+      # We need to preserve metadata in .rlib for rustc to do its job
+      stripExclude = [ "*.rlib" ];
+
       installPhase = installCrate crateName metadata buildTests;
 
       # depending on the test setting we are either producing something with bins
