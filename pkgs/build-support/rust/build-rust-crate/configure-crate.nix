@@ -7,12 +7,17 @@
 , completeBuildDeps
 , completeDeps
 , crateAuthors
-, crateLinks
 , crateDescription
-, crateHomepage
 , crateFeatures
+, crateHomepage
+, crateLicense
+, crateLicenseFile
+, crateLinks
 , crateName
+, crateReadme
 , crateRenames
+, crateRepository
+, crateRustVersion
 , crateVersion
 , extraLinkFlags
 , extraRustcOptsForBuildRs
@@ -147,6 +152,11 @@ in ''
   export CARGO_PKG_VERSION_PATCH=${lib.elemAt version 2}
   export CARGO_PKG_VERSION_PRE="${versionPre}"
   export CARGO_PKG_HOMEPAGE="${crateHomepage}"
+  export CARGO_PKG_LICENSE="${crateLicense}"
+  export CARGO_PKG_LICENSE_FILE="${crateLicenseFile}"
+  export CARGO_PKG_README="${crateReadme}"
+  export CARGO_PKG_REPOSITORY="${crateRepository}"
+  export CARGO_PKG_RUST_VERSION="${crateRustVersion}"
   export NUM_JOBS=$NIX_BUILD_CORES
   export RUSTC="rustc"
   export RUSTDOC="rustdoc"
